@@ -4,7 +4,6 @@ import { BarcodeFormat, DecodeHintType } from '@zxing/library';
 import type { Exception, Result } from '@zxing/library';
 
 const emit = defineEmits({
-	// Validate scan payload is a string.
 	scan: (code: string) => typeof code === `string`,
 });
 
@@ -18,7 +17,6 @@ let toastTimer: number | undefined;
 const hints = new Map<DecodeHintType, unknown>([
 	[DecodeHintType.TRY_HARDER, true],
 	[DecodeHintType.POSSIBLE_FORMATS, [
-		// 1D retail
 		BarcodeFormat.EAN_13,
 		BarcodeFormat.EAN_8,
 		BarcodeFormat.UPC_A,
@@ -30,7 +28,6 @@ const hints = new Map<DecodeHintType, unknown>([
 		BarcodeFormat.ITF,
 		BarcodeFormat.RSS_14,
 		BarcodeFormat.RSS_EXPANDED,
-		// 2D
 		BarcodeFormat.QR_CODE,
 		BarcodeFormat.DATA_MATRIX,
 		BarcodeFormat.AZTEC,
